@@ -6,7 +6,7 @@
 *Name/Value Pair:* name which maps to a unique value
 e.g. `var address = "100 Main St";`
 
-*Object:* collection of name/value pairs
+**Object:** collection of name/value pairs
 
 ```javascript
 Address: {
@@ -27,7 +27,7 @@ Global object means "not inside a function"
 ### Lecture 10 ###
 Function can be called at anytime, even if it's being instantiated below the call
 
-*Hoisting:* setup memory space for variables and functions. functions and variables exist in memory
+**Hoisting:** setup memory space for variables and functions. functions and variables exist in memory
 This means that no matter where the function or variable is instantiated, JS can still read it. If a variable is instantiated below the the code the it would just give an 'undefined'.
 
 ```javascript
