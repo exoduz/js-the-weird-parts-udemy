@@ -57,4 +57,4 @@ console.log(a); //Hello World
 
 
 ### Lecture 11 ###
-
+`undefined` is not just the word, it's a special value which means that the variable hasn't been set
