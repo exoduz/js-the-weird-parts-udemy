@@ -4,7 +4,7 @@
 
 ### Lecture 7 ###
 *Name/Value Pair:* name which maps to a unique value
-e.g. `var address = “100 Main St”;`
+e.g. `var address = "100 Main St";`
 
 *Object:* collection of name/value pairs
 
@@ -19,9 +19,9 @@ Address: {
 
 
 ### Lecture 9 ###
-Execution context creates “Global Object (`window`)” and `this`
-`this` refers to the ‘window' object at the global level
-Global object means “not inside a function”
+Execution context creates "Global Object (`window`)" and `this`
+`this` refers to the "window" object at the global level
+Global object means "not inside a function"
 
 
 ### Lecture 10 ###
@@ -34,7 +34,7 @@ This means that no matter where the function or variable is instantiated, JS can
 b(); //Called b
 console.log(a); //undefined
 
-var a = “Hello World”;
+var a = "Hello World";
 
 function b() {
 	console.log(‘Called b’);
@@ -45,7 +45,7 @@ All variables are set to ‘undefined’
 
 ```javascript
 //Always to code in logical order
-var a = “Hello World”;
+var a = "Hello World";
 
 function b() {
 console.log(‘Called b’);
