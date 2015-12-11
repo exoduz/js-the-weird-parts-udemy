@@ -33,7 +33,7 @@ This means that no matter where the function or variable is instantiated, JS can
 b(); //Called b
 console.log(a); //undefined
 
-var a = "Hello World";
+var a = 'Hello World';
 
 function b() {
 	console.log('Called b');
@@ -43,7 +43,7 @@ All variables are set to `undefined`
 
 ```javascript
 //Always code in logical order
-var a = "Hello World";
+var a = 'Hello World';
 
 function b() {
 console.log('Called b');
