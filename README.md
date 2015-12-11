@@ -40,11 +40,10 @@ function b() {
 	console.log('Called b');
 }
 ```
-
-All variables are set to 'undefined'
+Above result, all variables are set to 'undefined'
 
 ```javascript
-//Always to code in logical order
+//Always code in logical order
 var a = "Hello World";
 
 function b() {
