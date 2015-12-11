@@ -25,10 +25,10 @@ Global object means "not inside a function"
 
 
 ### Lecture 10 ###
-Function can be called at anytime, even if it’s being instantiated below the call
+Function can be called at anytime, even if it's being instantiated below the call
 
 *Hoisting:* setup memory space for variables and functions. functions and variables exist in memory
-This means that no matter where the function or variable is instantiated, JS can still read it. If a variable is instantiated below the the code the it would just give an ‘undefined’.
+This means that no matter where the function or variable is instantiated, JS can still read it. If a variable is instantiated below the the code the it would just give an 'undefined'.
 
 ```javascript
 b(); //Called b
@@ -37,18 +37,18 @@ console.log(a); //undefined
 var a = "Hello World";
 
 function b() {
-	console.log(‘Called b’);
+	console.log('Called b');
 }
 ```
 
-All variables are set to ‘undefined’
+All variables are set to 'undefined'
 
 ```javascript
 //Always to code in logical order
 var a = "Hello World";
 
 function b() {
-console.log(‘Called b’);
+console.log('Called b');
 }
 
 b(); //Called b
@@ -58,3 +58,6 @@ console.log(a); //Hello World
 
 ### Lecture 11 ###
 `undefined` is not just the word, it's a special value which means that the variable hasn't been set
+
+Do not do `a = undefined`, let it mean "I, the programmer, never set it's value"
+
