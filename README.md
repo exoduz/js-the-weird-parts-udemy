@@ -1,8 +1,8 @@
 # Javascript: The Weird Parts #
-#### https://www.udemy.com/understand-javascript ####
+##### https://www.udemy.com/understand-javascript #####
 
 
-### Lecture 7 ###
+### Lecture 7 - Conceptual Aside: Name/Value Pairs and Objects ###
 *Name/Value Pair:* name which maps to a unique value
 e.g. `var address = "100 Main St";`
 
@@ -18,13 +18,13 @@ Address: {
 ```
 
 
-### Lecture 9 ###
+### Lecture 9 - The Global Environment and the Global Object ###
 Execution context creates "Global Object (`window`)" and `this`
 `this` refers to the "window" object at the global level
 Global object means "not inside a function"
 
 
-### Lecture 10 ###
+### Lecture 10 - The Executiion Context - Creation and Hoisting ###
 Function can be called at anytime, even if it's being instantiated below the call
 
 **Hoisting:** setup memory space for variables and functions. functions and variables exist in memory
@@ -56,8 +56,17 @@ console.log(a); //Hello World
 ```
 
 
-### Lecture 11 ###
+### Lecture 11 - Conceptual Aside: Javascript and 'undefined' ###
 `undefined` is not just the word, it's a special value which means that the variable hasn't been set
 
-Do not do `a = undefined`, let it mean "I, the programmer, never set it's value"
+**DO NOT** do `a = undefined`
+Let it mean "I, the programmer, never set it's value"
+
+
+### Lecture 13 - Conceptual Aside: Single Threaded, Synchronous Execution ###
+**Single Threaded:** one command at a time
+**Synchronous:** one at a time, and in order
+
+
+### Lecture 14 - Function Invocation and the Execution Stack ###
 
