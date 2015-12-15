@@ -66,4 +66,10 @@ console.log(a); //Hello World
 
 
 ### Lecture 14 - Function Invocation and the Execution Stack ###
+**Invocation:** run/call the function  
+**Execution Stack:** the order in which the functions in invoked. The more recent the function call, the higher it sits on the execution stack
+
+[Execution Stack](img/14-01.png)
+
+Every function creates a new execution context which runs through function line by line.
 
