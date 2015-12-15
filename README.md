@@ -116,5 +116,15 @@ Result is based on outer environment
 **symbol** only used in ES6
 
 
-### Lecture 21 - Conceptual Aside: Operators ###
+### Lecture 22 - Operator Precedence and Associativity ###
+[Operator Precedence and Associativity Table on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 
+**Associativity:** When 2 or more operators have the same precedence. Right to left or left to right, check the above link for more information.
+
+
+### Lecture 24 - Conceptual Aside: Coercion ###
+**Coercion:** Converting a value from 1 type to another
+
+```javascript
+var a = 1 + '2'; //12
+```
