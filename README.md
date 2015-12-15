@@ -3,7 +3,7 @@
 
 
 ### Lecture 7 - Conceptual Aside: Name/Value Pairs and Objects ###
-*Name/Value Pair:* name which maps to a unique value, e.g. `var address = "100 Main St";`
+**Name/Value Pair:** name which maps to a unique value, e.g. `var address = "100 Main St";`
 
 **Object:** collection of name/value pairs
 
@@ -69,7 +69,52 @@ console.log(a); //Hello World
 **Invocation:** run/call the function  
 **Execution Stack:** the order in which the functions in invoked. The more recent the function call, the higher it sits on the execution stack
 
-![Execution Stack](http://robinjulius.com/wp-content/uploads/2015/12/14-01.png)
+![Execution Stack](http://robinjulius.com/wp-content/uploads/2015/12/14-01-1024x700.png)
 
 Every function creates a new execution context which runs through function line by line.
+
+
+### Lecture 16 - The Scope Chain ###
+**Scope** Where can we find that var
+
+```javascript
+function b() {
+	console.log(myVar); //1
+}
+
+function a() {
+	var myVar = 2;
+	b();
+}
+
+var myVar = 1;
+a();
+```
+
+```javascript
+function a() {
+	function b() {
+		console.log(myVar); //2
+	}
+
+	var myVar = 2;
+	b();
+}
+
+var myVar = 1;
+a();
+```
+Result is based on outer environment
+
+
+### Lecture 20 - Conceptual Aside: Primitive Types ###
+**undefined** Lack of existence (you shouldn't set a variable to this), but you can test for it  
+**null** Lack of existence (you can set a variable to this)
+**boolean** true / false
+**number** _floating point_
+**string** sequence of characters ('' and "" can be used)
+**symbol** only used in ES6
+
+
+### Lecture 21 - Conceptual Aside: Operators ###
 
