@@ -69,7 +69,7 @@ console.log(a); //Hello World
 **Invocation:** run/call the function  
 **Execution Stack:** the order in which the functions in invoked. The more recent the function call, the higher it sits on the execution stack
 
-[Execution Stack](img/14-01.png)
+![Execution Stack](img/14-01.png)
 
 Every function creates a new execution context which runs through function line by line.
 
