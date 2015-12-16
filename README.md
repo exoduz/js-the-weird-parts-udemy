@@ -128,3 +128,13 @@ Result is based on outer environment
 ```javascript
 var a = 1 + '2'; //12
 ```
+
+### Lecture 25 - Comparison Operators ###
+
+
+### Lecture 27 - Existence and Booleans ###
+```javascript
+Boolean(undefined); //false
+Boolean(null); //false
+Boolean(''); //false
+Boolean(0); //false
