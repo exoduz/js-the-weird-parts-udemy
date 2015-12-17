@@ -130,7 +130,18 @@ var a = 1 + '2'; //12
 ```
 
 ### Lecture 25 - Comparison Operators ###
+```javascript
+console.log(1 < 2 < 3); //true
+console.log(3 < 2 < 1); //true, because (false < 1), will try to convert false a number which means (0 < 1) === true
 
+Number(undefined) //NaN
+Number(null) //0
+```
+
+`==` causes strange results especially with null, undefined and 0  
+User `===` (strict equality) and `!==` (strict inequality)
+
+[Equality comparisons and sameness on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 
 ### Lecture 27 - Existence and Booleans ###
 ```javascript
@@ -138,3 +149,27 @@ Boolean(undefined); //false
 Boolean(null); //false
 Boolean(''); //false
 Boolean(0); //false
+```
+
+
+### Lecture 30 - Objects and the Dot ###
+![Objects](http://robinjulius.com/wp-content/uploads/2015/12/30-01-1024x660.png)
+
+```javascript
+var person = new Object();
+
+person["firstname"] = "John";
+person["lastname"] = "Doe";
+
+console.log(person);
+console.log(person.firstname); // === person["firstname"]
+
+person.address = new Object();
+person.address.street = "111 Main St";
+person.address.city = "New York";
+
+console.log(person.address.street);
+console.log(person.address.city); // === person["address"]["city"]
+```
+
+### Lecture 31 - Objects and Object Literals ###
