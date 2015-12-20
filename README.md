@@ -173,3 +173,25 @@ console.log(person.address.city); // === person["address"]["city"]
 ```
 
 ### Lecture 31 - Objects and Object Literals ###
+
+
+### Lecture 32 - Framework Aside: Faking Namespaces ###
+**Namespace:** Container for variables and functions  
+Use objects to fake namespaces so that it does not clash with variables of the same name
+
+```javascript
+var greet = 'Hello!';
+var greet = 'Hola!';
+
+console.log(greet); //Hola!
+
+var english = {
+	greet: "Hello!"
+};
+
+var spanish = {};
+spanish.greet = 'Hola!';
+
+console.log(english.greet); //Hello!
+```
+
