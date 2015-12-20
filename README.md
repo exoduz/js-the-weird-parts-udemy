@@ -172,7 +172,9 @@ console.log(person.address.street);
 console.log(person.address.city); // === person["address"]["city"]
 ```
 
+
 ### Lecture 31 - Objects and Object Literals ###
+**Object Literal:** short hand of declaring variables `var person = {};` instead of `var person = new Object();`
 
 
 ### Lecture 32 - Framework Aside: Faking Namespaces ###
@@ -183,7 +185,7 @@ Use objects to fake namespaces so that it does not clash with variables of the s
 var greet = 'Hello!';
 var greet = 'Hola!';
 
-console.log(greet); //Hola!
+console.log(greet); //Result: 'Hola!' because it's run synchronously one line after another
 
 var english = {
 	greet: "Hello!"
@@ -195,3 +197,15 @@ spanish.greet = 'Hola!';
 console.log(english.greet); //Hello!
 ```
 
+
+### Lecture 33 - JSON and Object Literals ###
+`JSON.stringify()` - convert to JSON  
+`JSON.parse()` - convert to JS object
+
+
+### Lecture 34 - Functions are Objects ###
+Function **names** are optional  
+**Functions are Objects**
+
+
+### Lecture 35 - Function Statements and Function Expressions ###
