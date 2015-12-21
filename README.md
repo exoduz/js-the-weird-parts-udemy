@@ -329,4 +329,39 @@ arr[3](arr[2].name); //invoke a function in an array
 ```
 
 ### Lecture 39 - 'arguments' and spread ###
+**arguments:** output a list of all the values of the parameters (deprecated in ES6)  
+
+```javascript
+//example of spread
+//anything after the first 2 parameters will be stored in an array called other
+function greet(firstname, lastname, ...other) {
+	...
+}
+
+greet('John', 'Smith', '111 Main St', 'New York');
+```
+
+
+### Lecture 40 - Framework Aside: Function Overloading ###
+No function overloading in JS
+
+```javascript
+//Simple example of overloading a function
+function greet(firstname, lastname, language) {
+	...
+}
+
+function greetEn(firstname, lastname) {
+	greet(firstname, lastname, 'en');
+}
+
+function greetEs(firstname, lastname) {
+	greet(firstname, lastname, 'es');
+}
+
+greetEn('John', 'Smith'); //rather than greet('John', 'Smith', 'en');
+greetEs('Jose', 'Smith'); //rather than greet('Jose', 'Smith', 'ex');
+```
+
+
 
