@@ -360,8 +360,102 @@ function greetEs(firstname, lastname) {
 }
 
 greetEn('John', 'Smith'); //rather than greet('John', 'Smith', 'en');
-greetEs('Jose', 'Smith'); //rather than greet('Jose', 'Smith', 'ex');
+greetEs('Jose', 'Smith'); //rather than greet('Jose', 'Smith', 'es');
 ```
 
 
+### Lecture 44 - Immediately Invoked Functions Expressions (IIFEs) ###
+```javascript
+//function statement
+function greet(name) {
+	...
+}
+greet();
 
+//using a function expression
+var greetFunc = function(name) {
+	...
+};
+greetFunc();
+
+//Immediately Invoked Function Expression (IIFE)
+var greeting = function(name) {
+	...
+}('John'); //IIFE with name
+
+//IIFE without having a variable, you use wrap it with ()
+//so that it does not error, because when the engine finds the word 'function' it expects a name
+(function(name) {
+	...
+}('John')); //IIFE without name
+
+```
+
+
+### Lecture 46 - Understanding Closures ###
+![Closures](http://robinjulius.com/wp-content/uploads/2015/12/44-01-1024x510.png)
+
+Javascript will make sure that the function will always have access to the variables that it's supposed to. Making sure the scope is intact.
+
+
+### Lecture 47 - Understanding Closures - Part 2 ###
+```javascript
+function buildFunctions() {
+	var arr = [];
+
+	for (var i = 0; i < 3; i++) {
+		arr.push(function () {
+			console.log(i);
+		});
+	}
+
+	return arr;
+}
+
+var fs = buildFunctions();
+fs[0](); //3
+fs[1](); //3
+fs[2](); //3
+
+//fix ES6
+function buildFunctions2() {
+	var arr = [];
+
+	for (var i = 0; i < 3; i++) {
+		let j = i //scoped to the block
+
+		arr.push(function () {
+			console.log(j);
+		});
+	}
+
+	return arr;
+}
+
+var fs2 = buildFunctions2();
+fs2[0](); //0
+fs2[1](); //1
+fs2[2](); //2
+
+//fix ES5 and below
+function buildFunctions3() {
+	var arr = [];
+
+	for (var i = 0; i < 3; i++) {
+		arr.push(
+			(function (j) {
+				return function() {
+					console.log(j);
+				}
+			}(i)); //IIFE
+		);
+	}
+
+	return arr;
+}
+
+var fs3 = buildFunctions3();
+fs3[0](); //0
+fs3[1](); //1
+fs3[2](); //2
+```
