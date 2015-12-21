@@ -209,3 +209,124 @@ Function **names** are optional
 
 
 ### Lecture 35 - Function Statements and Function Expressions ###
+**Expression:** Code that results in a value
+
+```javascript
+var anonymousGreet = function() {
+	console.log('hi');
+}
+
+anonymousGreet(); //invoke anonymous function
+
+function log(a) {
+	console.log(a); //will just output a string of the anonymous function below
+}
+
+function log(a) {
+	a(); //hi
+}
+
+log(function() {
+	console.log('hi');
+});
+```
+
+
+### Lecture 36 - Conceptual Aside: By Value vs By Reference ###
+**By value:** passing or referencing one value to another by copying the value (all primitive types)  
+**By reference:** passing or referencing one value to another by pointing to address value in memory (all objects including functions)
+
+**Mutate:** Changing something  
+**Immutable:** Cannot be changed
+
+```javascript
+//by reference
+var c = { greeting: 'hi' };
+var d;
+
+d = c;
+c.greeting = 'hello';
+f
+console.log(c); //hello
+console.log(d); //hello
+
+//equals operator sets up new memory space (new address)
+c = { greeting: 'howdy' };
+console.log(c); //howdy
+console.log(d); //hello
+```
+
+
+### Lecture 37 - Objects, Functions and 'this' ###
+```javascript
+function a() {
+	console.log(this);
+}
+
+var b = function() {
+	console.log(this);
+}
+
+a(); //this is global object
+b(); //this is global object
+
+var c = {
+	name: 'The c object',
+	log: function() {
+		console.log(this);
+	}
+};
+
+c.log(); //the object that the method is sitting inside of. In this case 'c'
+
+//js bug
+var c = {
+	this.name: 'Updated c object';
+	console.log(this); //c object - method to an object is fine
+
+	var setname = function(newname) {
+		this.name = newname; //internal functions have a problem as it points to the global object 
+	}
+
+	setname('Updated again! The c object');
+	console.log(this); //expecting to see object c, but instead points to the global object
+};
+
+//fix
+var c = {
+	var that = this;
+
+	that.name: 'Updated c object';
+	console.log(that); //c object
+
+	var setname = function(newname) {
+		that.name = newname;
+	}
+
+	setname('Updated again! The c object');
+	console.log(that); //will expect to see c object
+};
+```
+
+
+### Lecture 38 - Arrays ###
+```javascript
+var arr = [
+	1,
+	false,
+	{
+		name: 'John',
+		...
+	},
+	function(name) {
+		var greeting = 'Hello ';
+		console.log(greeting + name);
+	},
+	"hello"
+];
+
+arr[3](arr[2].name); //invoke a function in an array
+```
+
+### Lecture 39 - 'arguments' and spread ###
+
