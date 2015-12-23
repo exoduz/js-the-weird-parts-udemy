@@ -469,7 +469,6 @@ fs3[2](); //2
 ```javascript
 function tellMeWhenDone(callback) {
 	...
-
 	callback(); //the 'callback' runs the function given
 }
 
@@ -484,5 +483,58 @@ tellMeWhenDone(function () {
 });
 ```
 
+### Lecture 50 - call(), apply() and bind() ###
+All functions have access to `call()`, `apply()` and `bind()`  
+These 3 functions have something to do with the `this` variable
 
+`bind()` creates a copy of the function, and takes what should be `this` as the 1st parameter  
+Also allows you to set default parameters, the 2nd parameter of `bind()` is the 1st parameter of the function it is bound to, 3rd parameter is 2nd, etc...
 
+`call()` invokes function/method, but does not create a copy like `bind()`, instead it executes the function  
+1st parameter is what `this` should point to, the rest is the parameters you would pass to the function
+
+`apply()` same as `call()` but wants an array as parameters
+
+```javascript
+var person = {
+	firstname: 'John',
+	lastname: 'Doe',
+	getFullName: function () {
+		var fullname = this.firstname + ' ' + this.lastname;
+		return fullname;
+	}
+};
+
+var logName = function (lang1, lang2) {
+	console.log('Logged: ' + this.getFullName());
+	console.log('Arguments: ' + lang1 + ' ' + lang2);
+}
+
+logName(); //running this alone would error because there is 'this' is only operated within the scope of the block, and would not find this.getFullName
+
+var logPersonName = logName.bind(person); //allows 'person' object to be passed to the function and used as 'this'
+logPersonName();
+
+logName.call(person, 'en'. 'es'); //equivalent to logName() to invoke function, 1st param is what 'this' should point to
+
+logName.apply(person, ['en', 'es']); //equivalent to above but requires an array as the parameters for the original function
+
+//function borrowing
+var person2 = {
+	firstname: 'Jane',
+	lastname: 'Doe'
+	//no getFullName method
+}
+
+person.getFullName.apply(person2); //borrow it from 'person' object
+
+//function currying
+function multiply(a, b) {
+	return a * b;
+}
+
+var multiplyByTwo = multiply.bind(this, 2); //2nd parameter replaces 'a' parameter permanently
+multiplyByTwo(4); //only requires 'b' parameter, result is 8
+```
+
+**Function Currying:** creating a copy of a function but with some preset parameters
