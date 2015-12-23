@@ -26,8 +26,8 @@ Global object means "not inside a function"
 ### Lecture 10 - The Executiion Context - Creation and Hoisting ###
 Function can be called at anytime, even if it's being instantiated below the call
 
-**Hoisting:** setup memory space for variables and functions. functions and variables exist in memory.  
-This means that no matter where the function or variable is instantiated, JS can still read it. If a variable is instantiated below the the code the it would just give an 'undefined'.
+**Hoisting:** setup memory space for variables and functions. functions and variables exist in memory  
+This means that no matter where the function or variable is instantiated, JS can still read it. If a variable is instantiated below the the code the it would just give an 'undefined'
 
 ```javascript
 b(); //Called b
@@ -109,17 +109,17 @@ Result is based on outer environment
 
 ### Lecture 20 - Conceptual Aside: Primitive Types ###
 **undefined** Lack of existence (you shouldn't set a variable to this), but you can test for it  
-**null** Lack of existence (you can set a variable to this)
-**boolean** true / false
-**number** _floating point_
-**string** sequence of characters ('' and "" can be used)
+**null** Lack of existence (you can set a variable to this)  
+**boolean** true / false  
+**number** _floating point_  
+**string** sequence of characters ('' and "" can be used)  
 **symbol** only used in ES6
 
 
 ### Lecture 22 - Operator Precedence and Associativity ###
 [Operator Precedence and Associativity Table on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 
-**Associativity:** When 2 or more operators have the same precedence. Right to left or left to right, check the above link for more information.
+**Associativity:** When 2 or more operators have the same precedence. Right to left or left to right, check the above link for more information
 
 
 ### Lecture 24 - Conceptual Aside: Coercion ###
@@ -212,7 +212,7 @@ Function **names** are optional
 **Expression:** Code that results in a value
 
 ```javascript
-var anonymousGreet = function() {
+var anonymousGreet = function () {
 	console.log('hi');
 }
 
@@ -226,7 +226,7 @@ function log(a) {
 	a(); //hi
 }
 
-log(function() {
+log(function () {
 	console.log('hi');
 });
 ```
@@ -263,7 +263,7 @@ function a() {
 	console.log(this);
 }
 
-var b = function() {
+var b = function () {
 	console.log(this);
 }
 
@@ -272,7 +272,7 @@ b(); //this is global object
 
 var c = {
 	name: 'The c object',
-	log: function() {
+	log: function () {
 		console.log(this);
 	}
 };
@@ -284,7 +284,7 @@ var c = {
 	this.name: 'Updated c object';
 	console.log(this); //c object - method to an object is fine
 
-	var setname = function(newname) {
+	var setname = function (newname) {
 		this.name = newname; //internal functions have a problem as it points to the global object 
 	}
 
@@ -299,7 +299,7 @@ var c = {
 	that.name: 'Updated c object';
 	console.log(that); //c object
 
-	var setname = function(newname) {
+	var setname = function (newname) {
 		that.name = newname;
 	}
 
@@ -318,7 +318,7 @@ var arr = [
 		name: 'John',
 		...
 	},
-	function(name) {
+	function (name) {
 		var greeting = 'Hello ';
 		console.log(greeting + name);
 	},
@@ -329,7 +329,7 @@ arr[3](arr[2].name); //invoke a function in an array
 ```
 
 ### Lecture 39 - 'arguments' and spread ###
-**arguments:** output a list of all the values of the parameters (deprecated in ES6)  
+`arguments` output a list of all the values of the parameters (deprecated in ES6)
 
 ```javascript
 //example of spread
@@ -373,19 +373,19 @@ function greet(name) {
 greet();
 
 //using a function expression
-var greetFunc = function(name) {
+var greetFunc = function (name) {
 	...
 };
 greetFunc();
 
 //Immediately Invoked Function Expression (IIFE)
-var greeting = function(name) {
+var greeting = function (name) {
 	...
 }('John'); //IIFE with name
 
 //IIFE without having a variable, you use wrap it with ()
 //so that it does not error, because when the engine finds the word 'function' it expects a name
-(function(name) {
+(function (name) {
 	...
 }('John')); //IIFE without name
 
@@ -395,7 +395,9 @@ var greeting = function(name) {
 ### Lecture 46 - Understanding Closures ###
 ![Closures](http://robinjulius.com/wp-content/uploads/2015/12/44-01-1024x510.png)
 
-Javascript will make sure that the function will always have access to the variables that it's supposed to. Making sure the scope is intact.
+In the above example, even though the greet function is finished, any functions created inside will still have a reference to the outer function's (greet()) execution context
+
+The Javascript engine will make sure that the function will always have access to the variables that it's supposed to. Making sure the scope is intact
 
 
 ### Lecture 47 - Understanding Closures - Part 2 ###
@@ -417,7 +419,7 @@ fs[0](); //3
 fs[1](); //3
 fs[2](); //3
 
-//fix ES6
+//ES6 fix
 function buildFunctions2() {
 	var arr = [];
 
@@ -437,14 +439,14 @@ fs2[0](); //0
 fs2[1](); //1
 fs2[2](); //2
 
-//fix ES5 and below
+//ES5 and below fix
 function buildFunctions3() {
 	var arr = [];
 
 	for (var i = 0; i < 3; i++) {
 		arr.push(
 			(function (j) {
-				return function() {
+				return function () {
 					console.log(j);
 				}
 			}(i)); //IIFE
@@ -459,3 +461,28 @@ fs3[0](); //0
 fs3[1](); //1
 fs3[2](); //2
 ```
+
+
+### Lecture 49 - Closures and Callbacks ###
+**Callback function:** a function you give to another function to be run when the first function is finished
+
+```javascript
+function tellMeWhenDone(callback) {
+	...
+
+	callback(); //the 'callback' runs the function given
+}
+
+//first callback
+tellMeWhenDone(function () {
+	console.log('Init callback');
+});
+
+//second callback
+tellMeWhenDone(function () {
+	console.log('Init callback a second time');
+});
+```
+
+
+
