@@ -107,7 +107,7 @@ a();
 ```
 Result is based on outer environment
 
-
+----
 ## Section 3 - Types and Operators ##
 
 ### Lecture 20 - Conceptual Aside: Primitive Types ###
@@ -153,7 +153,7 @@ Boolean(null); //false
 Boolean(''); //false
 Boolean(0); //false
 ```
-
+----
 ## Section 4 - Objects and Functions ##
 
 ### Lecture 30 - Objects and the Dot ###
@@ -556,7 +556,7 @@ Try not to mutate data
 If you need to mutate data, do it as high up the chain as possible  
 Better yet, do not change the data but return something new
 
-
+----
 ## Section 5 - Object Oriented Javascript and Prototypal Inheritance ##
 
 ### Lecture 53 - Conceptual Aside: Classical vs Prototypal Inheritance ###
