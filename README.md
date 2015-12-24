@@ -1,6 +1,7 @@
 # Javascript: The Weird Parts #
 ##### https://www.udemy.com/understand-javascript #####
 
+## Section 2 - Execution Contexts and Lexical Environments ##
 
 ### Lecture 7 - Conceptual Aside: Name/Value Pairs and Objects ###
 **Name/Value Pair:** name which maps to a unique value, e.g. `var address = "100 Main St";`
@@ -107,6 +108,8 @@ a();
 Result is based on outer environment
 
 
+## Section 3 - Types and Operators ##
+
 ### Lecture 20 - Conceptual Aside: Primitive Types ###
 **undefined** Lack of existence (you shouldn't set a variable to this), but you can test for it  
 **null** Lack of existence (you can set a variable to this)  
@@ -151,6 +154,7 @@ Boolean(''); //false
 Boolean(0); //false
 ```
 
+## Section 4 - Objects and Functions ##
 
 ### Lecture 30 - Objects and the Dot ###
 ![Objects](http://robinjulius.com/wp-content/uploads/2015/12/30-01-1024x660.png)
@@ -212,21 +216,28 @@ Function **names** are optional
 **Expression:** Code that results in a value
 
 ```javascript
+//function statement
+function greet() {
+	console.log('hello');
+}
+greet(); //invoke function, result is 'hello'
+
+//function expression
 var anonymousGreet = function () {
 	console.log('hi');
 }
-
-anonymousGreet(); //invoke anonymous function
+anonymousGreet(); //invoke anonymous function, result is 'hi'
 
 function log(a) {
 	console.log(a); //will just output a string of the anonymous function below
 }
+log(3); //3
 
-function log(a) {
-	a(); //hi
+function log2(a) {
+	a(); //run a function that is passed as a parameter, result is 'hi'
 }
 
-log(function () {
+log2(function () {
 	console.log('hi');
 });
 ```
@@ -510,7 +521,7 @@ var logName = function (lang1, lang2) {
 	console.log('Arguments: ' + lang1 + ' ' + lang2);
 }
 
-logName(); //running this alone would error because there is 'this' is only operated within the scope of the block, and would not find this.getFullName
+logName(); //running this alone would error because 'this' is only operated within the scope of the block, and would not find this.getFullName
 
 var logPersonName = logName.bind(person); //allows 'person' object to be passed to the function and used as 'this'
 logPersonName();
@@ -538,3 +549,15 @@ multiplyByTwo(4); //only requires 'b' parameter, result is 8
 ```
 
 **Function Currying:** creating a copy of a function but with some preset parameters
+
+
+### Lecture 51 - Functional Programming ###
+Try not to mutate data  
+If you need to mutate data, do it as high up the chain as possible  
+Better yet, do not change the data but return something new
+
+
+## Section 5 - Object Oriented Javascript and Prototypal Inheritance ##
+
+### Lecture 53 - Conceptual Aside: Classical vs Prototypal Inheritance ###
+
