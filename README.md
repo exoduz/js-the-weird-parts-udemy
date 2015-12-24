@@ -223,7 +223,7 @@ function greet() {
 greet(); //invoke function, result is 'hello'
 
 //function expression
-var anonymousGreet = function () {
+var anonymousGreet = function() {
 	console.log('hi');
 }
 anonymousGreet(); //invoke anonymous function, result is 'hi'
@@ -237,7 +237,7 @@ function log2(a) {
 	a(); //run a function that is passed as a parameter, result is 'hi'
 }
 
-log2(function () {
+log2(function() {
 	console.log('hi');
 });
 ```
@@ -274,7 +274,7 @@ function a() {
 	console.log(this);
 }
 
-var b = function () {
+var b = function() {
 	console.log(this);
 }
 
@@ -283,7 +283,7 @@ b(); //this is global object
 
 var c = {
 	name: 'The c object',
-	log: function () {
+	log: function() {
 		console.log(this);
 	}
 };
@@ -417,7 +417,7 @@ function buildFunctions() {
 	var arr = [];
 
 	for (var i = 0; i < 3; i++) {
-		arr.push(function () {
+		arr.push(function() {
 			console.log(i);
 		});
 	}
@@ -437,7 +437,7 @@ function buildFunctions2() {
 	for (var i = 0; i < 3; i++) {
 		let j = i //scoped to the block
 
-		arr.push(function () {
+		arr.push(function() {
 			console.log(j);
 		});
 	}
@@ -457,7 +457,7 @@ function buildFunctions3() {
 	for (var i = 0; i < 3; i++) {
 		arr.push(
 			(function (j) {
-				return function () {
+				return function() {
 					console.log(j);
 				}
 			}(i)); //IIFE
@@ -484,12 +484,12 @@ function tellMeWhenDone(callback) {
 }
 
 //first callback
-tellMeWhenDone(function () {
+tellMeWhenDone(function() {
 	console.log('Init callback');
 });
 
 //second callback
-tellMeWhenDone(function () {
+tellMeWhenDone(function() {
 	console.log('Init callback a second time');
 });
 ```
@@ -510,7 +510,7 @@ Also allows you to set default parameters, the 2nd parameter of `bind()` is the 
 var person = {
 	firstname: 'John',
 	lastname: 'Doe',
-	getFullName: function () {
+	getFullName: function() {
 		var fullname = this.firstname + ' ' + this.lastname;
 		return fullname;
 	}
@@ -556,8 +556,40 @@ Try not to mutate data
 If you need to mutate data, do it as high up the chain as possible  
 Better yet, do not change the data but return something new
 
-----
 ## Section 5 - Object Oriented Javascript and Prototypal Inheritance ##
 
 ### Lecture 53 - Conceptual Aside: Classical vs Prototypal Inheritance ###
+**Inheritance:** one object gets access to the properties and methods of another object
+
+
+## Section 6 - Building Objects ##
+
+### Lecture 58 - Function Constructors and '.prorotype' ###
+```javascript
+function Person(firstname, lastname) {
+	this.firstname = firstname;
+	this.lastname = lastname;
+	//Do prototype instead of creating method here (this.getFullName = function() {...})
+}
+
+Person.prototype.getFullName = function() {
+	return this.firstname + ' ' + this.lastname;
+}
+
+Person.prototype.getFormalFullName = function() {
+	return this.lastname + ', ' + this.firstname;
+}
+
+var john = new Person('John', 'Doe');
+console.log(john); //Person { firstname: "John", lastname: "Doe", getFullName: function... }
+```
+
+Why use prototype rather than create a new method in the Person class?  
+If you create a method then it will take up memory space, 1000 Person objects means 1000 getFullName methods  
+If you add it to the prototype then you would only have 1, even if you have 1000 objects
+
+You need properties for each object (e.g. this.firstname) because you need different values per object, but methods (e.g. getFullName), you only need one
+
+
+### Lecture 60 - Conceptual Aside: Built-In Function Constructors ###
 
