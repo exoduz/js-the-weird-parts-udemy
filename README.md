@@ -565,6 +565,8 @@ Better yet, do not change the data but return something new
 ## Section 6 - Building Objects ##
 
 ### Lecture 58 - Function Constructors and '.prorotype' ###
+Capitalise first character of a class
+
 ```javascript
 function Person(firstname, lastname) {
 	this.firstname = firstname;
@@ -592,4 +594,65 @@ You need properties for each object (e.g. this.firstname) because you need diffe
 
 
 ### Lecture 60 - Conceptual Aside: Built-In Function Constructors ###
+Function constructors `var a = new String("John")` create objects that contain primitives and methods in the String function (`indexOf`, `concat`, etc.), or whatever you create `new` (e.g. `Date`, `Number`, etc.)
 
+```javascript
+//extends String prototype with new method
+String.prototype.isLengthGreaterThan = function(limit) {
+	return this.length > limit;
+}
+
+console.log("John".isLengthGreaterThan(3));
+```
+
+
+### Lecture 61 - Dangerous Aside: Built-In Function Constructors ###
+**DO NOT** use built-in function constructors for primitives
+
+```javascript
+var a = 3 //primitive
+var b = new Number(3); //object created with a built-in function contstructor
+
+a == b; //true
+a === b; //false
+```
+
+
+### Lecture 62 - Dangerous Aside: Arrays and for...in ###
+```javascript
+Array.prototype.myCustomFeature = 'cool!';
+
+var arr = ['John', 'Jane', 'Jim'];
+
+for (var prop in arr) {
+	//arrays in js are objects and you will iterate through the prototype as well
+	console.log(prop + ': ' + arr[prop]); //result 0: John, 1: Jane, 2: Jim, myCustomFeature: cool!
+}
+
+for (i = 0; i < arr.length; arr++) { //use normal for loop instead
+	...
+}
+
+```
+
+
+### Lecture 63 - Object.create and Pure Prototypal Inheritance ###
+Function constructors try to mimic classes
+
+```javascript
+//prototypal inheritance example
+var person = {
+	firstname: 'Default',
+	lastname: 'Default',
+	greet: function() {
+		return 'Hi ' + this.firstname;
+	}
+};
+
+var john = Object.create(person);
+john.firstname = 'John';
+john.lastname = 'Doe';
+console.log(john); // Object {firstname: "John", lastname: "Doe", greet: function}
+```
+
+**Polyfill:** code that adds feature which older browser or engines __may__ lack
