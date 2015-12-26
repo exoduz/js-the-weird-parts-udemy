@@ -556,6 +556,7 @@ Try not to mutate data
 If you need to mutate data, do it as high up the chain as possible  
 Better yet, do not change the data but return something new
 
+
 ## Section 5 - Object Oriented Javascript and Prototypal Inheritance ##
 
 ### Lecture 53 - Conceptual Aside: Classical vs Prototypal Inheritance ###
@@ -629,10 +630,7 @@ for (var prop in arr) {
 	console.log(prop + ': ' + arr[prop]); //result 0: John, 1: Jane, 2: Jim, myCustomFeature: cool!
 }
 
-for (i = 0; i < arr.length; arr++) { //use normal for loop instead
-	...
-}
-
+for (i = 0; i < arr.length; i++) { ... } //use normal for loop instead
 ```
 
 
@@ -656,3 +654,27 @@ console.log(john); // Object {firstname: "John", lastname: "Doe", greet: functio
 ```
 
 **Polyfill:** code that adds feature which older browser or engines __may__ lack
+
+
+## Section 7 - Odds and Ends ##
+
+### Lecture 65 - typeof, instanceof, and Figuring Out What Something Is ###
+`typeof` what type an instance is
+
+```javascript
+var b = "Hello"; //typeof b is String
+var c = {}; //typeof c is Object
+
+var d = []; //typeof d is Object, which is incorrect
+Object.prototype.toString.call(d); //[Object array]
+```
+
+`instanceOf` returns true/false if any objects down the prototype chain contans this type of object
+
+```javascript
+function Person(name) { ... }
+console.log(typeof e); //object
+console.log(e instanceOf Person); //true, because e is an instance of Person
+```
+
+`typeof null` result is object, this is a **BUG** in JS
