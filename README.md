@@ -449,7 +449,7 @@ var fs2 = buildFunctions2();
 fs2[0](); //0
 fs2[1](); //1
 fs2[2](); //2
-// this is like asking your father what age he is now and not what age he had each one of this children
+// this is like asking a child what age the father is now, and not what age he had each one of this children
 
 
 //ES5 and below fix
