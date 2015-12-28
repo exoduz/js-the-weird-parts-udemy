@@ -24,7 +24,7 @@ Execution context creates "Global Object (`window`)" and `this`
 Global object means "not inside a function"
 
 
-### Lecture 10 - The Executiion Context - Creation and Hoisting ###
+### Lecture 10 - The Execution Context - Creation and Hoisting ###
 Function can be called at anytime, even if it's being instantiated below the call
 
 **Hoisting:** setup memory space for variables and functions. functions and variables exist in memory  
