@@ -257,7 +257,7 @@ var d;
 
 d = c;
 c.greeting = 'hello';
-f
+
 console.log(c); //hello
 console.log(d); //hello
 
