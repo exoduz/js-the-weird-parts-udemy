@@ -70,7 +70,7 @@ console.log(a); //Hello World
 **Invocation:** run/call the function  
 **Execution Stack:** the order in which the functions in invoked. The more recent the function call, the higher it sits on the execution stack
 
-![Execution Stack](http://robinjulius.com/wp-content/uploads/2015/12/14-01-1024x700.png)
+![Execution Stack](https://robinjulius.com/blog/wp-content/uploads/2015/12/14-01-1024x700.png)
 
 Every function creates a new execution context which runs through function line by line.
 
@@ -157,7 +157,7 @@ Boolean(0); //false
 ## Section 4 - Objects and Functions ##
 
 ### Lecture 30 - Objects and the Dot ###
-![Objects](http://robinjulius.com/wp-content/uploads/2015/12/30-01-1024x660.png)
+![Objects](https://robinjulius.com/blog/wp-content/uploads/2015/12/30-01-1024x660.png)
 
 ```javascript
 var person = new Object();
@@ -404,7 +404,7 @@ var greeting = function (name) {
 
 
 ### Lecture 46 - Understanding Closures ###
-![Closures](http://robinjulius.com/wp-content/uploads/2015/12/44-01-1024x510.png)
+![Closures](https://robinjulius.com/blog/wp-content/uploads/2015/12/44-01-1024x510.png)
 
 In the above example, even though the greet function is finished, any functions created inside will still have a reference to the outer function's (greet()) execution context
 
