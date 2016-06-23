@@ -4,11 +4,44 @@
 ### Contents ###
 1. [Section 2 - Execution Contexts and Lexical Environments](#section-2)
 	1. [Lecture 7 - Conceptual Aside: Name/Value Pairs and Objects](#lect-7)
-	2. 
+	2. [Lecture 9 - The Global Environment and the Global Object](#lect-9)
+	3. [Lecture 10 - The Execution Context - Creation and Hoisting](#lect-10)
+	4. [Lecture 11 - Conceptual Aside: Javascript and 'undefined'](#lect-11)
+	5. [Lecture 13 - Conceptual Aside: Single Threaded, Synchronous Execution](#lect-13)
+	6. [Lecture 14 - Function Invocation and the Execution Stack](#lect-14)
+	7. [Lecture 16 - The Scope Chain](#lect-16)
 2. [Section 3 - Types and Operators](#section-3)
+	1. [Lecture 20 - Conceptual Aside: Primitive Types](#lect-20)
+	2. [Lecture 22 - Operator Precedence and Associativity](#lect-22)
+	3. [Lecture 24 - Conceptual Aside: Coercion](#lect-24)
+	4. [Lecture 25 - Comparison Operators](#lect-25)
+	5. [Lecture 27 - Existence and Booleans](#lect-27)
 3. [Section 4 - Objects and Functions](#section-4)
+	1. [Lecture 30 - Objects and the Dot](#lect-30)
+	2. [Lecture 31 - Objects and Object Literals](#lect-31)
+	3. [Lecture 32 - Framework Aside: Faking Namespaces](#lect-32)
+	4. [Lecture 33 - JSON and Object Literals](#lect-33)
+	5. [Lecture 34 - Functions are Objects](#lect-34)
+	6. [Lecture 35 - Function Statements and Function Expressions](#lect-35)
+	7. [Lecture 36 - Conceptual Aside: By Value vs By Reference](#lect-36)
+	8. [Lecture 37 - Objects, Functions and 'this'](#lect-37)
+	9. [Lecture 38 - Arrays](#lect-38)
+	10. [Lecture 39 - 'arguments' and spread](#lect-39)
+	11. [Lecture 40 - Framework Aside: Function Overloading](#lect-40)
+	12. [Lecture 44 - Immediately Invoked Functions Expressions (IIFEs)](#lect-44)
+	13. [Lecture 46 - Understanding Closures](#lect-46)
+	14. [Lecture 47 - Understanding Closures - Part 2](#lect-47)
+	15. [Lecture 49 - Closures and Callbacks](#lect-49)
+	16. [Lecture 50 - call(), apply() and bind()](#lect-50)
+	17. [Lecture 51 - Functional Programming](#lect-51)
 4. [Section 5 - Object Oriented Javascript and Prototypal Inheritance](#section-5)
+	1. [Lecture 53 - Conceptual Aside: Classical vs Prototypal Inheritance](#lect-53)
 5. [Section 6 - Building Objects](#section-6)
+	1. [Lecture 58 - Function Constructors and '.prorotype'](#lect-58)
+	2. [Lecture 60 - Conceptual Aside: Built-In Function Constructors](#lect-60)
+	3. [Lecture 61 - Dangerous Aside: Built-In Function Constructors](#lect-61)
+	4. [Lecture 62 - Dangerous Aside: Arrays and for...in](#lect-62)
+	5. [Lecture 63 - Object.create and Pure Prototypal Inheritance](#lect-63)
 6. [Section 7 - Odds and Ends](#section-7)
 	1. [Lecture 65 - typeof, instanceof, and Figuring Out What Something Is](#lect-65)
 
@@ -120,7 +153,6 @@ a();
 ```
 Result is based on outer environment
 
-----
 <a id="section-3"></a>
 ## Section 3 - Types and Operators ##
 
@@ -169,7 +201,7 @@ Boolean(null); //false
 Boolean(''); //false
 Boolean(0); //false
 ```
-----
+
 <a id="section-4"></a>
 ## Section 4 - Objects and Functions ##
 
