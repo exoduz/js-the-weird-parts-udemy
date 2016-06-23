@@ -1,8 +1,21 @@
 # Javascript: The Weird Parts #
 ##### https://www.udemy.com/understand-javascript #####
 
+### Contents ###
+1. [Section 2 - Execution Contexts and Lexical Environments](#section-2)
+	1. [Lecture 7 - Conceptual Aside: Name/Value Pairs and Objects](#lect-7)
+	2. 
+2. [Section 3 - Types and Operators](#section-3)
+3. [Section 4 - Objects and Functions](#section-4)
+4. [Section 5 - Object Oriented Javascript and Prototypal Inheritance](#section-5)
+5. [Section 6 - Building Objects](#section-6)
+6. [Section 7 - Odds and Ends](#section-7)
+	1. [Lecture 65 - typeof, instanceof, and Figuring Out What Something Is](#lect-65)
+
+<a id="section-3"></a>
 ## Section 2 - Execution Contexts and Lexical Environments ##
 
+<a id="lect-7"></a>
 ### Lecture 7 - Conceptual Aside: Name/Value Pairs and Objects ###
 **Name/Value Pair:** name which maps to a unique value, e.g. `var address = "100 Main St";`
 
@@ -17,13 +30,13 @@ Address: {
 }
 ```
 
-
+<a id="lect-9"></a>
 ### Lecture 9 - The Global Environment and the Global Object ###
 Execution context creates "Global Object (`window`)" and `this`  
 `this` refers to the "window" object at the global level  
 Global object means "not inside a function"
 
-
+<a id="lect-10"></a>
 ### Lecture 10 - The Execution Context - Creation and Hoisting ###
 Function can be called at anytime, even if it's being instantiated below the call
 
@@ -54,18 +67,18 @@ b(); //Called b
 console.log(a); //Hello World
 ```
 
-
+<a id="lect-11"></a>
 ### Lecture 11 - Conceptual Aside: Javascript and 'undefined' ###
 `undefined` is not just the word, it's a special value which means that the variable hasn't been set
 
 **DO NOT** do `a = undefined`, let it mean "I, the programmer, never set it's value"
 
-
+<a id="lect-13"></a>
 ### Lecture 13 - Conceptual Aside: Single Threaded, Synchronous Execution ###
 **Single Threaded:** one command at a time  
 **Synchronous:** one at a time, and in order
 
-
+<a id="lect-14"></a>
 ### Lecture 14 - Function Invocation and the Execution Stack ###
 **Invocation:** run/call the function  
 **Execution Stack:** the order in which the functions in invoked. The more recent the function call, the higher it sits on the execution stack
@@ -74,7 +87,7 @@ console.log(a); //Hello World
 
 Every function creates a new execution context which runs through function line by line.
 
-
+<a id="lect-16"></a>
 ### Lecture 16 - The Scope Chain ###
 **Scope** Where can we find that var
 
@@ -108,8 +121,10 @@ a();
 Result is based on outer environment
 
 ----
+<a id="section-3"></a>
 ## Section 3 - Types and Operators ##
 
+<a id="lect-20"></a>
 ### Lecture 20 - Conceptual Aside: Primitive Types ###
 **undefined** Lack of existence (you shouldn't set a variable to this), but you can test for it  
 **null** Lack of existence (you can set a variable to this)  
@@ -118,20 +133,20 @@ Result is based on outer environment
 **string** sequence of characters ('' and "" can be used)  
 **symbol** only used in ES6
 
-
+<a id="lect-22"></a>
 ### Lecture 22 - Operator Precedence and Associativity ###
 [Operator Precedence and Associativity Table on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 
 **Associativity:** When 2 or more operators have the same precedence. Right to left or left to right, check the above link for more information
 
-
+<a id="lect-24"></a>
 ### Lecture 24 - Conceptual Aside: Coercion ###
 **Coercion:** Converting a value from 1 type to another
 
 ```javascript
 var a = 1 + '2'; //12
 ```
-
+<a id="lect-25"></a>
 ### Lecture 25 - Comparison Operators ###
 ```javascript
 console.log(1 < 2 < 3); //true
@@ -146,6 +161,7 @@ User `===` (strict equality) and `!==` (strict inequality)
 
 [Equality comparisons and sameness on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 
+<a id="lect-27"></a>
 ### Lecture 27 - Existence and Booleans ###
 ```javascript
 Boolean(undefined); //false
@@ -154,8 +170,10 @@ Boolean(''); //false
 Boolean(0); //false
 ```
 ----
+<a id="section-4"></a>
 ## Section 4 - Objects and Functions ##
 
+<a id="lect-30"></a>
 ### Lecture 30 - Objects and the Dot ###
 ![Objects](https://robinjulius.com/blog/wp-content/uploads/2015/12/30-01-1024x660.png)
 
@@ -176,11 +194,11 @@ console.log(person.address.street);
 console.log(person.address.city); // === person["address"]["city"]
 ```
 
-
+<a id="lect-31"></a>
 ### Lecture 31 - Objects and Object Literals ###
 **Object Literal:** short hand of declaring variables `var person = {};` instead of `var person = new Object();`
 
-
+<a id="lect-32"></a>
 ### Lecture 32 - Framework Aside: Faking Namespaces ###
 **Namespace:** Container for variables and functions  
 Use objects to fake namespaces so that it does not clash with variables of the same name
@@ -201,17 +219,17 @@ spanish.greet = 'Hola!';
 console.log(english.greet); //Hello!
 ```
 
-
+<a id="lect-33"></a>
 ### Lecture 33 - JSON and Object Literals ###
 `JSON.stringify()` - convert to JSON  
 `JSON.parse()` - convert to JS object
 
-
+<a id="lect-34"></a>
 ### Lecture 34 - Functions are Objects ###
 Function **names** are optional  
 **Functions are Objects**
 
-
+<a id="lect-35"></a>
 ### Lecture 35 - Function Statements and Function Expressions ###
 **Expression:** Code that results in a value
 
@@ -242,7 +260,7 @@ log2(function() {
 });
 ```
 
-
+<a id="lect-36"></a>
 ### Lecture 36 - Conceptual Aside: By Value vs By Reference ###
 **By value:** passing or referencing one value to another by copying the value (all primitive types)  
 **By reference:** passing or referencing one value to another by pointing to address value in memory (all objects including functions)
@@ -267,7 +285,7 @@ console.log(c); //howdy
 console.log(d); //hello
 ```
 
-
+<a id="lect-37"></a>
 ### Lecture 37 - Objects, Functions and 'this' ###
 ```javascript
 function a() {
@@ -319,7 +337,7 @@ var c = {
 };
 ```
 
-
+<a id="lect-38"></a>
 ### Lecture 38 - Arrays ###
 ```javascript
 var arr = [
@@ -339,6 +357,7 @@ var arr = [
 arr[3](arr[2].name); //invoke a function in an array
 ```
 
+<a id="lect-39"></a>
 ### Lecture 39 - 'arguments' and spread ###
 `arguments` output a list of all the values of the parameters (deprecated in ES6)
 
@@ -352,7 +371,7 @@ function greet(firstname, lastname, ...other) {
 greet('John', 'Smith', '111 Main St', 'New York');
 ```
 
-
+<a id="lect-40"></a>
 ### Lecture 40 - Framework Aside: Function Overloading ###
 No function overloading in JS
 
@@ -374,7 +393,7 @@ greetEn('John', 'Smith'); //rather than greet('John', 'Smith', 'en');
 greetEs('Jose', 'Smith'); //rather than greet('Jose', 'Smith', 'es');
 ```
 
-
+<a id="lect-44"></a>
 ### Lecture 44 - Immediately Invoked Functions Expressions (IIFEs) ###
 ```javascript
 //function statement
@@ -402,7 +421,7 @@ var greeting = function (name) {
 
 ```
 
-
+<a id="lect-46"></a>
 ### Lecture 46 - Understanding Closures ###
 ![Closures](https://robinjulius.com/blog/wp-content/uploads/2015/12/44-01-1024x510.png)
 
@@ -410,7 +429,7 @@ In the above example, even though the greet function is finished, any functions 
 
 The Javascript engine will make sure that the function will always have access to the variables that it's supposed to. Making sure the scope is intact
 
-
+<a id="lect-47"></a>
 ### Lecture 47 - Understanding Closures - Part 2 ###
 ```javascript
 function buildFunctions() {
@@ -475,7 +494,7 @@ fs3[1](); //1
 fs3[2](); //2
 ```
 
-
+<a id="lect-49"></a>
 ### Lecture 49 - Closures and Callbacks ###
 **Callback function:** a function you give to another function to be run when the first function is finished
 
@@ -496,6 +515,7 @@ tellMeWhenDone(function() {
 });
 ```
 
+<a id="lect-50"></a>
 ### Lecture 50 - call(), apply() and bind() ###
 All functions have access to `call()`, `apply()` and `bind()`  
 These 3 functions have something to do with the `this` variable
@@ -552,21 +572,23 @@ multiplyByTwo(4); //only requires 'b' parameter, result is 8
 
 **Function Currying:** creating a copy of a function but with some preset parameters
 
-
+<a id="lect-51"></a>
 ### Lecture 51 - Functional Programming ###
 Try not to mutate data  
 If you need to mutate data, do it as high up the chain as possible  
 Better yet, do not change the data but return something new
 
-
+<a id="section-5"></a>
 ## Section 5 - Object Oriented Javascript and Prototypal Inheritance ##
 
+<a id="lect-53"></a>
 ### Lecture 53 - Conceptual Aside: Classical vs Prototypal Inheritance ###
 **Inheritance:** one object gets access to the properties and methods of another object
 
-
+<a id="section-6"></a>
 ## Section 6 - Building Objects ##
 
+<a id="lect-58"></a>
 ### Lecture 58 - Function Constructors and '.prorotype' ###
 Capitalise first character of a class
 
@@ -595,7 +617,7 @@ If you add it to the prototype then you would only have 1, even if you have 1000
 
 You need properties for each object (e.g. this.firstname) because you need different values per object, but methods (e.g. getFullName), you only need one
 
-
+<a id="lect-60"></a>
 ### Lecture 60 - Conceptual Aside: Built-In Function Constructors ###
 Function constructors `var a = new String("John")` create objects that contain primitives and methods in the String function (`indexOf`, `concat`, etc.), or whatever you create `new` (e.g. `Date`, `Number`, etc.)
 
@@ -608,7 +630,7 @@ String.prototype.isLengthGreaterThan = function(limit) {
 console.log("John".isLengthGreaterThan(3));
 ```
 
-
+<a id="lect-61"></a>
 ### Lecture 61 - Dangerous Aside: Built-In Function Constructors ###
 **DO NOT** use built-in function constructors for primitives
 
@@ -620,7 +642,7 @@ a == b; //true
 a === b; //false
 ```
 
-
+<a id="lect-62"></a>
 ### Lecture 62 - Dangerous Aside: Arrays and for...in ###
 ```javascript
 Array.prototype.myCustomFeature = 'cool!';
@@ -635,7 +657,7 @@ for (var prop in arr) {
 for (i = 0; i < arr.length; i++) { ... } //use normal for loop instead
 ```
 
-
+<a id="lect-63"></a>
 ### Lecture 63 - Object.create and Pure Prototypal Inheritance ###
 Function constructors try to mimic classes
 
@@ -657,9 +679,10 @@ console.log(john); // Object {firstname: "John", lastname: "Doe", greet: functio
 
 **Polyfill:** code that adds feature which older browser or engines __may__ lack
 
-
+<a id="section-7"></a>
 ## Section 7 - Odds and Ends ##
 
+<a id="lect-65"></a>
 ### Lecture 65 - typeof, instanceof, and Figuring Out What Something Is ###
 `typeof` what type an instance is
 
