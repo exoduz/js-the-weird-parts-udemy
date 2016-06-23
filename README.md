@@ -12,7 +12,7 @@
 6. [Section 7 - Odds and Ends](#section-7)
 	1. [Lecture 65 - typeof, instanceof, and Figuring Out What Something Is](#lect-65)
 
-<a id="section-3"></a>
+<a id="section-2"></a>
 ## Section 2 - Execution Contexts and Lexical Environments ##
 
 <a id="lect-7"></a>
